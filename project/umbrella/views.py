@@ -20,7 +20,8 @@ def home(request):
         #set None TZ to avoid conflicts
         dt_day = day.when.replace(tzinfo=None)
         
-        #check if day isnt already in list and if it is a future date
+        #check if day isnt already in list (cuz it give 8 weather info for each day) 
+        # and if it is a future date, cuz database could have past day weather info
         if weekday not in days and dt_day > today:
             days.append(weekday)
 
