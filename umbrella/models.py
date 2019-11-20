@@ -7,4 +7,3 @@ class WeatherVO(models.Model):
     when = models.DateTimeField()
     humidity = models.IntegerField()
     umbrella = models.BooleanField()
-    
