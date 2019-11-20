@@ -1,6 +1,6 @@
 weather mini challenge resolution
 ===============================
-
+be aware of use python3 :)
 
 ## Usage
 
