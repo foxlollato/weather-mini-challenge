@@ -11,7 +11,6 @@ pip install -r requirements.txt
 
 Prepare database
 ```shell
-cd project
 python manage.py migrate
 ```
 
