@@ -33,7 +33,7 @@ service listens at localhost:8000
 
  Make sure docker-compose is installed
 ```shell                                        
- docker-compose build
+docker-compose build
 docker-compose up
 ```
 service listens at localhost:80
