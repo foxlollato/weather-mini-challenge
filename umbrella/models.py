@@ -1,5 +1,4 @@
 from django.db import models
-# from django.db.models import DO_NOTHING
 
 #simple value object model to store valuable information from api response
 class WeatherVO(models.Model):
