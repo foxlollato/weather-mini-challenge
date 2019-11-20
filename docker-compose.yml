@@ -7,7 +7,7 @@ services:
         - 8080
       working_dir: /app
       # command: ls
-      command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runjobs minutely && gunicorn --workers=3 iclinic.wsgi -b 0.0.0.0:8080"
+      command: bash -c "python manage.py makemigrations umbrella && python manage.py migrate && python manage.py runjobs minutely && gunicorn --workers=3 iclinic.wsgi -b 0.0.0.0:8080"
 
   nginx:
       restart: always
