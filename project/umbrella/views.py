@@ -6,7 +6,7 @@ def home(request):
     #get current time to avoid past days from today
     today = datetime.now()
 
-    #querying umrella and forward days 
+    #querying umbrella filtered by forward days 
     umbrellaDaysList = WeatherVO.objects.all().filter(umbrella=True, dt_txt__gt=today)
 
     #getting list to add umbrella weekdays once each
