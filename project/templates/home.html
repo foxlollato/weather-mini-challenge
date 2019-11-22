@@ -5,7 +5,7 @@
 {% if days %}
     <h1>You should take an umbrella in these days: 
     {% for day in days %}
-        {{day}}{% if not forloop.last %}, {% else %}.{% endif %}       
+    {% if not forloop.first and not forloop.last %},{% endif %}{% if forloop.last %}and{% endif %} {{day}}{% if forloop.last %}.{% endif %}       
     {% endfor %}
     </h1>
 {% else %}
