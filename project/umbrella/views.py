@@ -7,22 +7,10 @@ def home(request):
     today = datetime.now()
 
     #querying umrella and forward days 
-    umbrellaDaysList = WeatherVO.objects.all().filter(umbrella=True, when__gt=today)
+    umbrellaDaysList = WeatherVO.objects.all().filter(umbrella=True, dt_txt__gt=today)
 
-    #new list to add umbrella days
-    days = []    
-
-    #for each day in queried data list
-    for day in umbrellaDaysList:
-        #get weekday name
-        weekday = day.when.strftime('%A')
-
-        #set None TZ to avoid conflicts
-        dt_day = day.when.replace(tzinfo=None)
-        
-        #check if day isnt already in list (cuz it give 8 weather info for each day)
-        if weekday not in days:
-            days.append(weekday)
+    #getting list to add umbrella weekdays once each
+    days = list(dict.fromkeys([day.dt_txt.strftime('%A') for day in umbrellaDaysList]))
 
     #set list in response, or none if empty
     response = days if len(days) > 0 else None
