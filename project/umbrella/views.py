@@ -3,14 +3,14 @@ from datetime import datetime
 from .models import WeatherVO
 
 def home(request):
-    #querying umrella days
-    umbrellaDaysList = WeatherVO.objects.all().filter(umbrella=True)
-
-    #new list to add umbrella days
-    days = []
-
     #get current time to avoid past days from today
     today = datetime.now()
+
+    #querying umrella and forward days 
+    umbrellaDaysList = WeatherVO.objects.all().filter(umbrella=True, when__gt=today)
+
+    #new list to add umbrella days
+    days = []    
 
     #for each day in queried data list
     for day in umbrellaDaysList:
@@ -20,9 +20,8 @@ def home(request):
         #set None TZ to avoid conflicts
         dt_day = day.when.replace(tzinfo=None)
         
-        #check if day isnt already in list (cuz it give 8 weather info for each day) 
-        # and if it is a future date, cuz database could have past day weather info
-        if weekday not in days and dt_day > today:
+        #check if day isnt already in list (cuz it give 8 weather info for each day)
+        if weekday not in days:
             days.append(weekday)
 
     #set list in response, or none if empty
