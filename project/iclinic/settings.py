@@ -122,7 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-WEATHER_API_TOKEN = 'a99c3b5e153779c262fd790c539d5451' #token from openweathermap
+WEATHER_API_TOKEN = None #api token removed. Insert your own.
 WEATHER_API_CITY_ID = '3451328' #Ribeirao Preto id from http://bulk.openweathermap.org/sample/current.city.list.json.gz
 #openwathermap api endpoint to get 5 days forecast weather info
 WEATHER_API_STRING = 'https://api.openweathermap.org/data/2.5/forecast?id='+WEATHER_API_CITY_ID+'&appid='+WEATHER_API_TOKEN
